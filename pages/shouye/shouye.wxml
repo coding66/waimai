@@ -1,0 +1,132 @@
+<view class='page1'>
+  <view class='mt-head'>
+    <view class='mt-head1'>
+        <view class='mt-saoma'>餐厅扫码<text class="iconfont .icon-saoyisao"></text></view>
+        <view class='mt-adress'>
+        <text class='iconfont .icon-shouhuodizhi'></text>
+        <view class='adressname'>新塘镇铁塔路43号</view>
+        <text class='iconfont .icon-down-circle-fill'></text>
+        </view>
+    </view>
+    <view class='mt-search'>
+        <view class='search-bar'>
+          <input type='text' placeholder='请输入您喜欢的商品' ></input>
+          <text class='iconfont .icon-sousuo'></text>
+        </view>
+    </view>
+    <view class='mt-youhui'>
+        <swiper class='swrap'
+    autoplay="true" interval="2000" vertical="true" circular='false'>
+    <block wx:for="{{ads}}" >
+      <swiper-item class='swrap2' >
+      <text  class='iconfont .icon-shengyin'></text>
+      <span class='ad'>{{item.msg}}</span>
+      </swiper-item>
+    </block>
+  </swiper>
+    </view>
+    <view class='mt-menu'>
+        <view class='select' bindtap='orderclick'>
+        <text>点菜</text>
+        <view class='{{orderclass}}'></view>
+        </view>
+        <view class='seller' bindtap='sellerclick'>
+        <text>商品</text>
+        <view class='{{sellerclass}}'></view>
+        </view>
+    </view>
+    <view class='mt-foodscontent2' wx:if='{{tag2}}'>
+        <view class='adv1'>
+             <view class='sellinfo'>商家信息</view>       
+             <view class='hr'></view>
+             <view class='transinfo'><text class='iconfont .icon-shouhuodizhi'></text><text class='info'>新塘镇铁塔路43号</text></view>
+             <view class='transinfo'><text class='iconfont .icon-waimai'></text><text class='info'>配送时间:  10:30-20:00</text></view>
+             <view class='transinfo'><text class='iconfont .icon-wode'></text><text class='info'>商家配送服务</text></view>
+             <view class='transinfo'><text class='iconfont .icon-dingdan'></text><text class='info'>￥10元起送 | 配送费￥3</text></view>
+        </view>
+        <view class='adv2'>
+           <view class='sellinfo2'>店内活动</view>       
+           <view class='hr2'></view>
+           <view class='transinfo2'><text class='iconfont .icon-shouhuodizhi'></text><text class='info2'>新塘镇铁塔路43号</text></view>
+             <view class='transinfo2'><text class='iconfont .icon-waimai'></text><text class='info2'>配送时间:  10:30-20:00</text></view>
+             <view class='transinfo2'><text class='iconfont .icon-wode'></text><text class='info2'>商家配送服务</text></view>
+        </view>
+          
+    </view>
+    
+    
+    <view class='mt-foodscontent' wx:if="{{tag1}}">
+    
+        <scroll-view class='foodtype' scroll-y='true'>
+        <block wx:for='{{foodtypes}}'>
+             <view class='{{index===styleindex?"selected":"unselect"}}' bindtap='selectetap' data-index='{{index}}'>{{item.name}}</view>
+        </block>
+        </scroll-view>
+        <!-- <import src='../template/template.wxml'/> -->
+        <scroll-view class='foodlist' scroll-y='true'>
+        <block wx:for='{{foodinfo}}'>
+            <view class='scroll-item2'>
+              
+                  <!-- <template is='moban' data='{{item}}'/> -->
+     <view class='food-img' bindtap='jumpdetail'>
+         <image src='{{item.img}}' class='img'></image>
+     </view>
+     <view class='food-info'>
+        <view class='food-title'>{{item.title}}</view>
+        <view class='food-rice'>{{item.send}}</view>
+        <view class='food-sellercount'>{{item.sellercount}}</view>
+        <view class='food-star'>评分:
+        <i-rate 
+            bind:change="onChange1" 
+            value="{{item.star}}">
+        </i-rate>
+    
+        </view>
+        <view class='food-ordercount'>
+           <span class='price'>￥{{item.price}}</span>
+           <span class='oldprice'>￥{{item.oldprice}}</span>
+           <view class='ordercount'>
+            <view class='iconfont .icon-minus-circle' id='minus' bindtap='minustap' data-id='{{index}}'></view>
+            <view id='count'>{{item.ordercount}}</view>
+            <view class='iconfont .icon-plus-circle' id='plus' bindtap='plustap' data-id='{{index}}'></view>
+            
+           </view>
+           
+        </view>
+     </view>
+          </view>
+        </block>
+        </scroll-view>
+    </view>
+  </view>
+
+<view wx:if="{{bool}}">
+  <view class='wrap'>
+  <view class='food-name'>五花肉拌饭</view>
+  <view class='tag'>口味</view>
+    <view class='taste-content'>
+     <block wx:for="{{tastearr}}">
+       
+      <view class='{{index===tasteid?"tasteselected":"taste"}}' data-id='{{index}}' bindtap='tastetap'>{{item.value}}</view>
+       
+     </block>
+    </view>
+    <view class='ok' bindtap='isoktap'>确定</view>
+  </view>
+</view>
+<view class='mt-hongbao' bindtap='gethongbao' wx:if='{{flag2}}'>
+    <image  class='hongbaoimg' src='../../asset/newuserpag.png' style=''></image>
+</view>
+<view class='hongbaodetail' wx:if='{{flag}}'>
+    <view class='txt'>
+        <view class='count'>￥<span class='tag'>5</span><text>新用户专享卷</text></view>
+        <view class='time'>
+           <text class='txt1'>满30可用</text>
+           <text class='txt2'>有效期至2017/08/02</text>
+        </view>
+    </view>
+   <image  class='detailimg' src='../../asset/pagbg.png' style=''></image>
+   <image class='btnimg' bindtap='sure'  src='../../asset/btn.png'></image>
+   
+</view>
+</view>

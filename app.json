@@ -1,0 +1,50 @@
+{
+  "pages":[
+  
+    "pages/shouye/shouye",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/template/template",
+    "pages/carshop/carshop",
+    "pages/order/order",
+    "pages/me/me",
+    "pages/shopdetail/shopdetail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#03030A",
+    "navigationBarTitleText": "美团外卖",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar":{
+       "color":"#ADADAD",
+       "selectedColor":"#0AA7C9",
+       "backgroundColor":"#FFFFFF",
+       "borderStyle": "black",
+       "list":[
+          {"pagePath":"pages/shouye/shouye",
+           "text":"首页",
+           "iconPath":"./asset/waimai2.png",
+           "selectedIconPath":"./asset/waimai.png"
+          },
+          {"pagePath": "pages/carshop/carshop",
+          "text": "购物车",
+          "iconPath": "./asset/car2.png",
+          "selectedIconPath": "./asset/car.png"
+          },
+          {"pagePath": "pages/order/order",
+          "text": "订单",
+          "iconPath": "./asset/order2.png",
+          "selectedIconPath": "./asset/order.png"
+          },
+          
+          {
+            "pagePath": "pages/me/me",
+            "text": "我的",
+            "iconPath": "./asset/wo2.png",
+            "selectedIconPath": "./asset/wo.png"
+          }
+
+       ]
+  }
+}

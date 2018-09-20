@@ -1,0 +1,15 @@
+<view class='content'>
+  <scroll-view scroll-y='true'>
+    <view class='foodimg'>
+        <image style='width:750rpx;height:500rpx'src='../../asset/food2.jpg'></image>
+    </view>
+     <view class='foodinfo'>
+        <view class='info' style='padding-left:30rpx;font-size:30rpx;color:rgba(7,17,27,0.6)'>黄焖鸡米饭</view>
+        <view class='info'></view>
+        <view class='info'></view>
+        <view class='info'></view>
+        <view class='info'></view>
+     </view>
+  </scroll-view>
+   
+</view>

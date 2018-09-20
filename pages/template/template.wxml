@@ -1,0 +1,29 @@
+<template name='moban'>
+     <view class='food-img'>
+         <image src='{{item.img}}' class='img'></image>
+     </view>
+     <view class='food-info'>
+        <view class='food-title'>{{item.title}}</view>
+        <view class='food-rice'>{{item.send}}</view>
+        <view class='food-sellercount'>{{item.sellercount}}</view>
+        <view class='food-star'>评分:
+        <i-rate 
+            bind:change="onChange1" 
+            value="{{item.star}}">
+        </i-rate>
+    
+        </view>
+        <view class='food-ordercount'>
+           <span class='price'>￥{{item.price}}</span>
+           <span class='oldprice'>￥{{item.oldprice}}</span>
+           <view class='ordercount'>
+            <view class='iconfont .icon-minus-circle' id='minus' bindtap='minustap' data-id='{{item.index}}'></view>
+            <view id='count'>{{item.ordercount}}</view>
+            <view class='iconfont .icon-plus-circle' id='plus' bindtap='plustap' data-id='{{item.index}}'></view>
+            
+           </view>
+           
+        </view>
+     </view>
+
+</template>
